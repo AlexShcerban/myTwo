@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/style.css" />
+
+        <script src="js/message.js"></script>
+        <script src="js/log_in.js"></script>
+        <title>Личный кабинет</title>
+    </head>
+    <body>
+        <header>
+            <!--<nav class="nav-scroll_items">
+                <a href="#" class="nav-scroll_item" onclick="linkcontent('php/message.php');">Главная</a>
+            </nav>-->
+        </header>
+        <main>
+            <div id = "message_block"></div>
+
+            <button onclick="gen_Message()">Жми</button>
+            <button onclick="gen_Button()">Вопрос</button>
+            <a href="html/catalog.html">2 страница</a>
+
+            <form action = "auth.php" method="post" name="frm" id = "registr_block">
+                <fieldset>
+                    <p>Email: <input type="email" name="email" id=""></p>
+                    <p>Пароль: <input type="password" name="password" id=""></p>
+                    <input type="button" onclick="checkform()" value="Регистрация">
+                </fieldset>
+            </form>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
