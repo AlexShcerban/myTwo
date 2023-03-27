@@ -47,6 +47,12 @@ a {
     border-radius: 10px;
 }
 
+/*Личный кабинет*/
+#accaunt_info{
+    /*display: none;*/
+    background-color: rgb(193, 180, 165);
+}
+
 
 /*Каталог*/
 #catalog_block{

@@ -1,3 +1,12 @@
+<?php
+
+require_once 'config/connect.php';
+
+$accaunts = mysqli_query($connect, "SELECT * FROM `accaunts`");//получение данных
+$accaunts = mysqli_fetch_all($accaunts);//нормальный вид
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -15,17 +24,19 @@
     </head>
     <body>
         <header>
-            <!--<nav class="nav-scroll_items">
-                <a href="#" class="nav-scroll_item" onclick="linkcontent('php/message.php');">Главная</a>
-            </nav>-->
+
         </header>
         <main>
             <div id = "message_block"></div>
 
             <button onclick="gen_Message()">Жми</button>
             <button onclick="gen_Button()">Вопрос</button>
-            <a href="html/catalog.html">2 страница</a>
 
+//////////////////////
+            <button onclick="func()">Fufu</button>
+/////////////////////
+
+            <a href="html/catalog.php">2 страница</a>
             <form action = "auth.php" method="post" name="frm" id = "registr_block">
                 <fieldset>
                     <p>Email: <input type="email" name="email" id=""></p>
@@ -33,6 +44,33 @@
                     <input type="button" onclick="checkform()" value="Регистрация">
                 </fieldset>
             </form>
+
+
+
+//////////////////////////////////////////////////////
+
+            <div id = "accaunt_info">
+
+                <?php 
+                    if($_POST["id"] != 0){
+                        echo $_POST["id"];
+                    }
+                ?>
+
+                <?php 
+                    foreach($accaunts as $accaunt)
+                    {
+                    ?>
+                        Name: <?= $accaunt[1] ?><br>
+                        Curs: <?= $accaunt[3] ?><br>
+                    <?php
+                    }
+                ?>
+            </div>
+/////////////////////////////////////////////
+
+
+
         </main>
         <footer>
 
