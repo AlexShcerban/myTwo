@@ -1,14 +1,13 @@
-<?php
-
+<?php 
 require_once '../config/connect.php';
-
 $products = mysqli_query($connect, "SELECT * FROM `Course`");//получение данных
 $products = mysqli_fetch_all($products);//нормальный вид
-
-
 session_start();
-?>
 
+
+$a=(int)$_GET["id_product"];// получение id открываемого товара 
+$product = $products[$a];
+?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -22,19 +21,20 @@ session_start();
         <link rel="stylesheet" href="../css/style.css" />
 
         <script src="../js/catalog.js"></script>
-        <title>Каталог</title>
+        <title>Товар</title>
     </head>
-<script>
-    var ar = <?php echo json_encode($products)?>;
-</script>
-    <body onload="gen_Goods(ar)">
+    <body>
         <main>
-            <a href="../index.php">1 страница</a>
-            <div id = "catalog_block"></div>
+            <div id = "product_name"><?= $product[1] ?></div>
+            <div id = "product_descript"><?= $product[3] ?></div>
+
+         <!--   <form action="" method="post">
+                <input type="button" class = "button" id = "product_button" value="<?= $product[2] ?>" onclick="buy_php()">
+            </form>-->
+
         </main>
         <footer>
 
         </footer>
     </body>
 </html>
-

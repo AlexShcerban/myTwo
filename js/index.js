@@ -1,5 +1,5 @@
 //сюда передаем ссылку
-function linkcontent(link) {
+/*function linkcontent(link) {
     //Получаем ID контента
     var cont = document.getElementById('content')
     //Получаем ID вывода текстового предупреждения о загрузке
@@ -48,4 +48,4 @@ function linkcontent(link) {
         }
       }
     }
-  } //end function
+  } //end function*/

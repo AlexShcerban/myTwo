@@ -15,12 +15,12 @@ $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
                 print $accaunt[0];
                 echo " ";
                 print $accaunt[1];
-                $_POST["id"] = $accaunt[0];
+                session_start();
+                $_SESSION["id"] = $accaunt[0];
             }
 
         }
-        $urlBack = file_get_contents("index.php");
-        echo $urlBack;
+        header('Location:index.php');
         exit();
     }
 ?>

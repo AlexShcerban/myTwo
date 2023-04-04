@@ -47,7 +47,7 @@ require_once '../config/connect.php';
         <p>Имя</p>
         <input type="text" name = "_name">
         <p>Описание</p>
-        <textarea name="decription" ></textarea>
+        <textarea name="description" ></textarea>
         <p>Цена</p>
         <input type="number" name = "price"><br>
         <button type = "submit">Add new course</button>

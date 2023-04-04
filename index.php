@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
 require_once 'config/connect.php';
 
 $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts`");//получение данных
@@ -50,21 +50,23 @@ $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
 //////////////////////////////////////////////////////
 
             <div id = "accaunt_info">
-
                 <?php 
-                    if($_POST["id"] != 0){
-                        echo $_POST["id"];
-                    }
-                ?>
+                if($_SESSION["id"] != 0){
+                    $_id = $_SESSION["id"];
+                    ?>
+                    Name: <?= $accaunts[$_id - 1][1] ?><br>
+                    Curs: <?= $accaunts[$_id - 1][3] ?><br>
+                    Buy: <?= $_SESSION["id_buy"] ?><br>
+                    <?php
+                }
 
-                <?php 
-                    foreach($accaunts as $accaunt)
+                  /*  foreach($accaunts as $accaunt)
                     {
                     ?>
                         Name: <?= $accaunt[1] ?><br>
                         Curs: <?= $accaunt[3] ?><br>
                     <?php
-                    }
+                    }*/
                 ?>
             </div>
 /////////////////////////////////////////////

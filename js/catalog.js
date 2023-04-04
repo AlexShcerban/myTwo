@@ -1,8 +1,6 @@
 var amount = 0;
 
-function gen_Goods(name, price){
-   // let name = ["Apple", "Pear", "Orange", "Banan"];
-    //let price = 10;
+function gen_Goods(products){
     let nameUrl = "product";
 
     let product = [];
@@ -11,23 +9,25 @@ function gen_Goods(name, price){
     
     let _child = document.createElement("div");
     _child.className = "goods";
-    ////////////////////////////////////
     _parent.appendChild(_child);
-    ///////////////////////////////////////
-    for(let i = 0; i < 4; i++){
-        productA[i] = document.createElement("a");
-        productA[i].href = nameUrl + ".html";
 
+    //создание товаров
+    for(let i = 0; i < products.length; i++){
         product[i] = document.createElement("div");
         product[i].className = "product";
+        product[i].href = 'product.php?id_product=' + i + '></a>';
 
-        _child.appendChild(productA[i]);
-        productA[i].appendChild(product[i]);
-        
-    //    price = Math.floor(Math.random() * 1000);
-        product[i].innerHTML = "<div class = 'text_center'>" + name + "<br>" + price + "</div>";
+        _child.appendChild(product[i]);
+
+        product[i].innerHTML = products[i][1];
+
+        product[i].innerHTML = '<a href = "product.php?id_product=' + i + '">' + products[i][1] + '</a>';
     }
 }
+
 function buy(xxx){
     alert (xxx);
+}
+function event_submit(){
+    frm.submit();
 }
