@@ -28,9 +28,11 @@ $product = $products[$a];
             <div id = "product_name"><?= $product[1] ?></div>
             <div id = "product_descript"><?= $product[3] ?></div>
 
-         <!--   <form action="" method="post">
-                <input type="button" class = "button" id = "product_button" value="<?= $product[2] ?>" onclick="buy_php()">
-            </form>-->
+            <form action="../php/buyCurse.php" method="get">
+                <!--  <input type="button" class = "button" id = "product_button" value="<?= $product[2] ?>" onclick="buy_php()">-->
+                <input type="number" name="curs_id" id="" value = "<?= $product[0] ?>">
+                <input type="submit" value= "<?= $product[2] ?>" class = "button" id = "product_button">
+            </form>
 
         </main>
         <footer>

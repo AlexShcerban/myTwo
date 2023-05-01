@@ -15,11 +15,12 @@ function gen_Goods(products){
     for(let i = 0; i < products.length; i++){
         product[i] = document.createElement("div");
         product[i].className = "product";
-        product[i].href = 'product.php?id_product=' + i + '></a>';
+       // product[i].href = 'product.php?id_product=' + i + ';
+      //  product[i].setAttribute("href", 'product.php?id_product='+i);
 
         _child.appendChild(product[i]);
 
-        product[i].innerHTML = products[i][1];
+      //  product[i].innerHTML = products[i][1];
 
         product[i].innerHTML = '<a href = "product.php?id_product=' + i + '">' + products[i][1] + '</a>';
     }

@@ -4,7 +4,8 @@ require_once 'config/connect.php';
 
 $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts`");//получение данных
 $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
-
+$curses = mysqli_query($connect, "SELECT `Course`.id, `Course`.name FROM `accaunts` JOIN `Course` ON `accaunts`.curs = `Course`.id;");
+$curses = mysqli_fetch_all($curses);
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +38,7 @@ $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
 /////////////////////
 
             <a href="html/catalog.php">2 страница</a>
+            <a href="php/create.php">3 страница</a>
             <form action = "auth.php" method="post" name="frm" id = "registr_block">
                 <fieldset>
                     <p>Email: <input type="email" name="email" id=""></p>
@@ -55,18 +57,9 @@ $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
                     $_id = $_SESSION["id"];
                     ?>
                     Name: <?= $accaunts[$_id - 1][1] ?><br>
-                    Curs: <?= $accaunts[$_id - 1][3] ?><br>
-                    Buy: <?= $_SESSION["id_buy"] ?><br>
+                    Мои Курсы: <a href="html/openCurs.php?cursId=<?= $curses[$_id - 1][0] ?>"> <?= $curses[$_id - 1][1] ?> </a>
                     <?php
                 }
-
-                  /*  foreach($accaunts as $accaunt)
-                    {
-                    ?>
-                        Name: <?= $accaunt[1] ?><br>
-                        Curs: <?= $accaunt[3] ?><br>
-                    <?php
-                    }*/
                 ?>
             </div>
 /////////////////////////////////////////////

@@ -30,6 +30,7 @@ session_start();
     <body onload="gen_Goods(ar)">
         <main>
             <a href="../index.php">1 страница</a>
+            <a href="../php/create.php">3 страница</a>
             <div id = "catalog_block"></div>
         </main>
         <footer>

@@ -58,7 +58,7 @@ a {
 #catalog_block{
     width: 70%;
     margin-left: 15%;
-    height: 1000px;
+  /*  height: 1000px;*/
     background-color: rgb(239, 225, 238);
     overflow: hidden;
     position: absolute;
@@ -67,6 +67,9 @@ a {
 .goods{
     justify-content: center;
     display: flex;
+    flex-wrap: wrap;
+   /* text-align: center;*/
+   /* display: inline-block;*/
 }
 .product{
     border-radius: 10px;
@@ -74,6 +77,7 @@ a {
     height: 250px;
     margin: 15px;
     background-color: rgba(29, 12, 80, 0.263);
+    text-align: center;
 }
 /*Товар*/
 #product_name{
@@ -91,4 +95,22 @@ a {
     margin-left: 50%;
     margin-top: 10px;
     transform: translate(-50%, -0%);
+}
+
+
+#create_table{
+    background-color: rgb(223, 202, 179);
+}
+.create_tr{
+    background-color: rgb(245, 239, 232);
+}
+#create_table_head{
+    background-color: rgb(241, 227, 212);
+}
+#create_form{
+    transform: translate(-50%, 0%);
+    margin-left: 50%;
+    width: 20%;
+    background-color: aquamarine;
+    text-align: center;
 }

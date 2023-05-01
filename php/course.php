@@ -8,14 +8,17 @@ require_once '../config/connect.php';
 <!doctype html>
 <html lang = "en">
 <head>
+    <link rel="stylesheet" href="../css/style.css">
     <meta charset = "UTF-8">
     <title>Document</title>
 </head>
 <body>
 
+    <a href="../index.php">1 страница</a>
+    <a href="../html/catalog.php">2 страница</a>
     <!-- Считывание данных -->
-    <table>
-        <tr>
+    <table id = "create_table">
+        <tr id = "create_table_head">
             <th>id</th>
             <th>Name</th>
             <th>Price</th>
@@ -28,7 +31,7 @@ require_once '../config/connect.php';
             foreach($products as $product){
                 ?>
 
-                <tr>
+                <tr class = "create_tr">
                     <td><?= $product[0] ?></td>
                     <td><?= $product[1] ?></td>
                     <td><?= $product[2] ?></td>
@@ -43,7 +46,7 @@ require_once '../config/connect.php';
 
 
     <!-- Создание данных -->
-    <form action="create.php" method="post">
+    <form action="create.php" method="post" id = "create_form">
         <p>Имя</p>
         <input type="text" name = "_name">
         <p>Описание</p>
