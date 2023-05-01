@@ -2,6 +2,18 @@
 
     require_once "../config/connect.php";
     $id = $_GET["cursId"];
+    $content_name = mysqli_query($connect, "SELECT * FROM `content`");
+    $content_name = mysqli_fetch_all($content_name);
+
+    // Создания списка из глав курса
+    $content_all = [];
+    for($x = 0; $x < count($content_name); $x++)
+    {
+        if($content_name[$x][1] == $id)
+        {
+            array_push ($content_all, $content_name[$x]);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +25,14 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- Создание оглавления курса -->
     <?php 
-    for($i = 1; $i < 4; $i++){ ?>
-    <a href = "content.php?content=<?= $i ?>&curs=<?= $id ?>">Ссылка на <?= $i ?> главу курса</a>
+    foreach($content_all as $content_one){ ?>
+    <a href = "content.php?content=<?= $content_one[0] ?>"><?= $content_one[2] ?></a>
     <br>
     <?php } ?>
+
+
 </body>
 </html>

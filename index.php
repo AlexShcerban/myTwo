@@ -2,10 +2,14 @@
     session_start();
 require_once 'config/connect.php';
 
-$accaunts = mysqli_query($connect, "SELECT * FROM `accaunts`");//получение данных
-$accaunts = mysqli_fetch_all($accaunts);//нормальный вид
-$curses = mysqli_query($connect, "SELECT `Course`.id, `Course`.name FROM `accaunts` JOIN `Course` ON `accaunts`.curs = `Course`.id;");
-$curses = mysqli_fetch_all($curses);
+$_id = 1;
+if($_SESSION["id"] != 0){
+    $_id = $_SESSION["id"];
+    $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts` WHERE `id`=$_id");//получение данных
+    $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
+    $curses = mysqli_query($connect, "SELECT `Course`.id, `Course`.name FROM `accaunts` JOIN `Course` ON `accaunts`.curs = `Course`.id WHERE `accaunts`.id =$_id");
+    $curses = mysqli_fetch_all($curses);
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,15 +56,11 @@ $curses = mysqli_fetch_all($curses);
 //////////////////////////////////////////////////////
 
             <div id = "accaunt_info">
-                <?php 
-                if($_SESSION["id"] != 0){
-                    $_id = $_SESSION["id"];
-                    ?>
-                    Name: <?= $accaunts[$_id - 1][1] ?><br>
-                    Мои Курсы: <a href="html/openCurs.php?cursId=<?= $curses[$_id - 1][0] ?>"> <?= $curses[$_id - 1][1] ?> </a>
-                    <?php
-                }
-                ?>
+                
+                    Name: <?= $accaunts[0][1] ?><br>
+                    Мои Курсы: <a href="html/openCurs.php?cursId=<?= $curses[0][0] ?>"> <?= $curses[0][1] ?> </a><br>
+                    Баланс: <?= $accaunts[0][4] ?>
+                    
             </div>
 /////////////////////////////////////////////
 

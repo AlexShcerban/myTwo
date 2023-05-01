@@ -30,7 +30,7 @@ $product = $products[$a];
 
             <form action="../php/buyCurse.php" method="get">
                 <!--  <input type="button" class = "button" id = "product_button" value="<?= $product[2] ?>" onclick="buy_php()">-->
-                <input type="number" name="curs_id" id="" value = "<?= $product[0] ?>">
+                <input type="number" name="price" id="" value = "<?= $product[2] ?>">
                 <input type="submit" value= "<?= $product[2] ?>" class = "button" id = "product_button">
             </form>
 
