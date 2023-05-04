@@ -28,47 +28,35 @@ if($_SESSION["id"] != 0){
         <title>Личный кабинет</title>
     </head>
     <body>
-        <header>
-
-        </header>
+        <?php include "html/header.php" ?>
         <main>
-            <div id = "message_block"></div>
+            <div class = "table">
+                .
+             <!--   <div id = "message_block"></div>
+                <button onclick="gen_Message()">Жми</button>
+                <button onclick="gen_Button()">Вопрос</button>
+                <button onclick="func()">Fufu</button>
+                <a href="html/catalog.php">2 страница</a>
+                <a href="php/create.php">3 страница</a>-->
 
-            <button onclick="gen_Message()">Жми</button>
-            <button onclick="gen_Button()">Вопрос</button>
-
-//////////////////////
-            <button onclick="func()">Fufu</button>
-/////////////////////
-
-            <a href="html/catalog.php">2 страница</a>
-            <a href="php/create.php">3 страница</a>
-            <form action = "auth.php" method="post" name="frm" id = "registr_block">
-                <fieldset>
-                    <p>Email: <input type="email" name="email" id=""></p>
-                    <p>Пароль: <input type="password" name="password" id=""></p>
-                    <input type="button" onclick="checkform()" value="Регистрация">
-                </fieldset>
-            </form>
-
-
-
-//////////////////////////////////////////////////////
-
-            <div id = "accaunt_info">
-                
+                <div class = "windowBig">
                     Name: <?= $accaunts[0][1] ?><br>
+                    Баланс: <?= $accaunts[0][4] ?><br><br>
                     Мои Курсы: <a href="html/openCurs.php?cursId=<?= $curses[0][0] ?>"> <?= $curses[0][1] ?> </a><br>
-                    Баланс: <?= $accaunts[0][4] ?>
-                    
+                </div>
+
+                <form action = "auth.php" method="post" name="frm" class = "windowBig">
+                    <fieldset>
+                        <p>Email: <input type="email" name="email" id=""></p>
+                        <p>Пароль: <input type="password" name="password" id=""></p>
+                        <input type="button" onclick="checkform()" value="Регистрация" class = "button">
+                    </fieldset>
+                </form>
+                <br><br><br><br><br><br>_
             </div>
-/////////////////////////////////////////////
-
-
-
         </main>
         <footer>
-
+            Footer
         </footer>
     </body>
 </html>

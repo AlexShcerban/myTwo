@@ -10,12 +10,15 @@ require_once '../config/connect.php';
 <head>
     <link rel="stylesheet" href="../css/style.css">
     <meta charset = "UTF-8">
-    <title>Document</title>
+    <title>Создание нового курса</title>
 </head>
 <body>
 
-    <a href="../index.php">1 страница</a>
-    <a href="../html/catalog.php">2 страница</a>
+<?php include "../html/header.php" ?>
+
+
+
+
     <!-- Считывание данных -->
     <table id = "create_table">
         <tr id = "create_table_head">
@@ -25,7 +28,7 @@ require_once '../config/connect.php';
             <th>Description</th>
         </tr>
 
-        <?php
+        <?php /*
             $products = mysqli_query($connect, "SELECT * FROM `Course`");//получение данных
             $products = mysqli_fetch_all($products);//нормальный вид
             foreach($products as $product){
@@ -40,19 +43,21 @@ require_once '../config/connect.php';
 
                 <?php
             }
-        ?>
+        */?>
     </table>
 
 
 
     <!-- Создание данных -->
-    <form action="create.php" method="post" id = "create_form">
+    <form action="create.php" method="post" id = "create_form" enctype = "multipart/form-data">
         <p>Имя</p>
         <input type="text" name = "_name">
         <p>Описание</p>
         <textarea name="description" ></textarea>
         <p>Цена</p>
         <input type="number" name = "price"><br>
+
+        <input type="file" name="photo" id="">
         <button type = "submit">Add new course</button>
     </form>
 </body>

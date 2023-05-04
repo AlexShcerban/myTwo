@@ -28,14 +28,16 @@ session_start();
     var ar = <?php echo json_encode($products)?>;
 </script>
     <body onload="gen_Goods(ar)">
-        <main>
-            <a href="../index.php">1 страница</a>
-            <a href="../php/create.php">3 страница</a>
-            <div id = "catalog_block"></div>
-        </main>
-        <footer>
 
-        </footer>
+        <?php include "../html/header.php" ?>
+
+
+        <main>
+            <div id = "catalog_block" class = "table"></div>
+        </main>
+       <!-- <footer>
+
+        </footer> -->
     </body>
 </html>
 

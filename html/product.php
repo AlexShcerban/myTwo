@@ -21,19 +21,25 @@ $product = $products[$a];
         <link rel="stylesheet" href="../css/style.css" />
 
         <script src="../js/catalog.js"></script>
-        <title>Товар</title>
+        <title>Выбранный курс</title>
     </head>
     <body>
+
+        <?php include "../html/header.php" ?>
+
+
         <main>
-            <div id = "product_name"><?= $product[1] ?></div>
-            <div id = "product_descript"><?= $product[3] ?></div>
+            <div class = "table">
+                <div id = "product_name"><?= $product[1] ?></div>
+                <img src="<?= $product[4] ?>" alt="Фото курса" id = "product_photo">
+                <div id = "product_descript"><?= $product[3] ?></div>
 
-            <form action="../php/buyCurse.php" method="get">
-                <!--  <input type="button" class = "button" id = "product_button" value="<?= $product[2] ?>" onclick="buy_php()">-->
-                <input type="number" name="price" id="" value = "<?= $product[2] ?>">
-                <input type="submit" value= "<?= $product[2] ?>" class = "button" id = "product_button">
-            </form>
-
+                <form action="../php/buyCurse.php" method="get">
+                    <input type="hidden" name="price" id="" value = "<?= $product[2] ?>">
+                    <input type="hidden" name="curs_id" id="" value = "<?= $product[0] ?>">
+                    <input type="submit" value= "<?= $product[2] ?> руб." class = "button" id = "product_button">
+                </form>
+            </div>
         </main>
         <footer>
 

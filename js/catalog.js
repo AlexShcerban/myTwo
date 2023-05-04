@@ -22,7 +22,7 @@ function gen_Goods(products){
 
       //  product[i].innerHTML = products[i][1];
 
-        product[i].innerHTML = '<a href = "product.php?id_product=' + i + '">' + products[i][1] + '</a>';
+        product[i].innerHTML = '<a href = "product.php?id_product=' + i + '">' + products[i][1] + '<br> <img src="' + products[i][4] + '" alt="Фото курса" width = "170" height = "170" style = "margin-top: 10px;"></a>';
     }
 }
 

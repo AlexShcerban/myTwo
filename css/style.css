@@ -1,4 +1,39 @@
+/*Рабочий стол на котором все лежит*/
+.table{
+    background-color: rgb(189, 224, 219);
+    width: 65%;
+    transform: translate(-50%, 0%);
+    margin-left: 50%;
+}
+/*Блоки*/
+.windowBig{
+    width: 90%;
+    background-color: rgb(99, 158, 156);
+    transform: translate(-50%, 0%);
+    margin-left: 50%;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 3px;
+}
 
+
+
+/*Разное----------------------------------------*/
+footer{
+    margin-top: 200px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: rgb(117, 173, 172);
+    height: 100px;
+    padding: 10px;
+}
+#header{
+    background-color: rgb(114, 192, 189);
+    width: 70%;
+    margin-left: 15%;
+    height: 50px;
+    margin-bottom: 20px;
+}
 .text_center{
     text-align: center;
 }
@@ -6,60 +41,21 @@ a {
     text-decoration: none;
     color: black;
 }
+body{
+    background-color: rgb(227, 255, 246);
+}
 .button{
     width: 100px;
     height: 35px;
-    background-color: rgb(234, 209, 179);
-}
-
-
-/*Личный кабинет*/
-#registr_block{
-    width: 40%;
-    margin-left: 5%;
-    margin-top: 100px;
-    background-color: rgb(206, 191, 173);
-    justify-content: center;
-}
-/*Сообщения*/
-#message_block{
-    margin-left: 50%;
-    margin-top: 100px;
-    width: 35%;
-    height: 500px;
-    background-color: rgb(232, 226, 219);
-    position: absolute;
-    overflow: hidden;
-    border-radius: 15px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
-}
-.message{
-    background-color: rgba(30, 18, 114, 0.13);
+    background-color: rgb(47, 138, 114);
     margin-bottom: 10px;
-    width: 70%;
-    margin-right: 10px;
-    float: right;
-    text-align: left;
-    padding: 7px;
-    border-radius: 10px;
-}
-
-/*Личный кабинет*/
-#accaunt_info{
-    /*display: none;*/
-    background-color: rgb(193, 180, 165);
 }
 
 
-/*Каталог*/
+
+
+/* каталог -------------------------------------------*/
 #catalog_block{
-    width: 70%;
-    margin-left: 15%;
-  /*  height: 1000px;*/
-    background-color: rgb(239, 225, 238);
     overflow: hidden;
     position: absolute;
     border-radius: 15px;
@@ -68,25 +64,33 @@ a {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-   /* text-align: center;*/
-   /* display: inline-block;*/
 }
 .product{
     border-radius: 10px;
     width: 200px;
     height: 250px;
     margin: 15px;
-    background-color: rgba(29, 12, 80, 0.263);
+    background-color: rgba(12, 80, 71, 0.263);
     text-align: center;
 }
-/*Товар*/
+
+
+
+
+/*Товар-----------------------------------------------*/
+#product_photo{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 20px;
+}
 #product_name{
     text-align: center;
     font-size: 150%;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 #product_descript{
-    background-color: rgb(173, 193, 193);
     height: 400px;
     text-align: center;
     padding-top: 10px;
@@ -97,15 +101,15 @@ a {
     transform: translate(-50%, -0%);
 }
 
-
+/*Создание курса--------------------------------------*/
 #create_table{
-    background-color: rgb(223, 202, 179);
+    background-color: rgb(179, 223, 213);
 }
 .create_tr{
-    background-color: rgb(245, 239, 232);
+    background-color: rgb(232, 245, 242);
 }
 #create_table_head{
-    background-color: rgb(241, 227, 212);
+    background-color: rgb(212, 241, 235);
 }
 #create_form{
     transform: translate(-50%, 0%);
