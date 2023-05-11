@@ -73,7 +73,10 @@ body{
     background-color: rgba(12, 80, 71, 0.263);
     text-align: center;
 }
-
+#search_{
+    margin-left: 60%;
+    margin-bottom: 20px;
+}
 
 
 

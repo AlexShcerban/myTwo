@@ -1,5 +1,12 @@
 <header id = "header">
-    <a href="../index.php">1 страница</a>
-    <a href="../html/catalog.php">2 страница</a>
-    <a href="../php/create.php">3 страница</a>
+    <?php 
+        session_start();
+        if($_SESSION["id"] > 0){ ?>
+            <a href="../index.php">Личный кабинет</a>
+            <a href="../html/catalog.php">Каталог</a>
+            <a href="../php/create.php">Создание курса</a>
+    <?php } else { ?>
+            <a href="../index.php">Регистрация</a>
+            <a href="../html/catalog.php">Каталог</a>
+    <?php } ?>
 </header>

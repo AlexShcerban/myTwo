@@ -1,26 +1,26 @@
 <?php
 
 require_once 'config/connect.php';
-
+session_start();
 $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts`");//получение данных
 $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
 
+if($_GET["exit"] = 3){
+    $_SESSION["id"] = 0;
+}
 
-    if(!empty($_POST["email"]) && !empty($_POST["password"])){
+    if(!empty($_GET["email"]) && !empty($_GET["password"])){
 
         foreach($accaunts as $accaunt)
         {
-
-            if($_POST["email"] === $accaunt[1] && $_POST["password"] === $accaunt[2] ){
-                print $accaunt[0];
-                echo " ";
-                print $accaunt[1];
-                session_start();
+            echo "ad ";
+            if($_GET["email"] === $accaunt[1] && $_GET["password"] === $accaunt[2] ){
                 $_SESSION["id"] = $accaunt[0];
             }
 
         }
-        header('Location:index.php');
-        exit();
     }
+
+header('Location:index.php');
+exit();
 ?>

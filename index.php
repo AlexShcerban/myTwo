@@ -2,12 +2,19 @@
     session_start();
 require_once 'config/connect.php';
 
-$_id = 1;
-if($_SESSION["id"] != 0){
-    $_id = $_SESSION["id"];
+$_id = $_SESSION["id"];
+if($_id != 0){
     $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts` WHERE `id`=$_id");//получение данных
     $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
-    $curses = mysqli_query($connect, "SELECT `Course`.id, `Course`.name FROM `accaunts` JOIN `Course` ON `accaunts`.curs = `Course`.id WHERE `accaunts`.id =$_id");
+    $list_course = mysqli_query($connect, "SELECT `list_course`.id_course FROM `accaunts` JOIN `list_course` ON `accaunts`.id = `list_course`.id_accaunt WHERE `accaunts`.id =$_id");
+    $list_course = mysqli_fetch_all ($list_course);
+
+    $list_id = "1";
+    for($i = 0; $i < count($list_course); $i++){
+        $list_id .= "," . $list_course[$i][0];
+    }
+
+    $curses = mysqli_query($connect, "SELECT `id`, `name` FROM `Course` WHERE `id` in (" . $list_id . ")");
     $curses = mysqli_fetch_all($curses);
 }
 ?>
@@ -32,26 +39,38 @@ if($_SESSION["id"] != 0){
         <main>
             <div class = "table">
                 .
-             <!--   <div id = "message_block"></div>
-                <button onclick="gen_Message()">Жми</button>
-                <button onclick="gen_Button()">Вопрос</button>
-                <button onclick="func()">Fufu</button>
-                <a href="html/catalog.php">2 страница</a>
-                <a href="php/create.php">3 страница</a>-->
-
-                <div class = "windowBig">
-                    Name: <?= $accaunts[0][1] ?><br>
-                    Баланс: <?= $accaunts[0][4] ?><br><br>
-                    Мои Курсы: <a href="html/openCurs.php?cursId=<?= $curses[0][0] ?>"> <?= $curses[0][1] ?> </a><br>
-                </div>
-
-                <form action = "auth.php" method="post" name="frm" class = "windowBig">
-                    <fieldset>
-                        <p>Email: <input type="email" name="email" id=""></p>
-                        <p>Пароль: <input type="password" name="password" id=""></p>
-                        <input type="button" onclick="checkform()" value="Регистрация" class = "button">
-                    </fieldset>
-                </form>
+                <?php if($_SESSION["id"] > 0){ ?>
+                    <div class = "windowBig">
+                        Name: <?= $accaunts[0][1] ?><br>
+                        Баланс: <?= $accaunts[0][4] ?><br><br>
+                    
+                        <div>
+                            Мои Курсы: <br>
+                            <?php
+                            for($i = 0; $i <= (count($curses) + 1); $i++){
+                                ?>
+                                <a href="html/openCurs.php?cursId=<?= $curses[$i][0] ?>"> <?= $curses[$i][1] ?> </a><br>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div>
+                            <form action="auth.php" method="get">
+                                <input type="hidden" name="exit" value = "3">
+                                <input type="submit" value="Выйти" class = "button">
+                            </form>
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <form action = "auth.php" method="get" name="frm" class = "windowBig">
+                        <fieldset>
+                            <input type="hidden" name="exit" value = "2">
+                            <p>Email: <input type="email" name="email" id=""></p>
+                            <p>Пароль: <input type="password" name="password" id=""></p>
+                            <input type="button" onclick="checkform()" value="Вход" class = "button">
+                        </fieldset>
+                    </form>
+                <?php } ?>
                 <br><br><br><br><br><br>_
             </div>
         </main>

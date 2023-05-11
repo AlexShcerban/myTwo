@@ -1,10 +1,13 @@
 <?php
+    session_start();
+    $id_accaunt = $_SESSION["id"];
 
     require_once "../config/connect.php";
     $id = $_GET["cursId"];
     $content_name = mysqli_query($connect, "SELECT * FROM `content`");
     $content_name = mysqli_fetch_all($content_name);
-
+    $owner = mysqli_query($connect, "SELECT `list_course`.owner FROM `accaunts` JOIN `list_course` ON `accaunts`.id = `list_course`.id_accaunt WHERE `accaunts`.id = ". $id_accaunt . " AND `list_course`.id_course = " . $id);
+    $owner = mysqli_fetch_all($owner);
     // Создания списка из глав курса
     $content_all = [];
     for($x = 0; $x < count($content_name); $x++)
@@ -37,15 +40,18 @@
     <?php } ?>
 
 <br><br>
-    <form action="create_content.php" method="get">
-        <p>Создание новой главы</p>
-        <label>Название главы: </label><input type="text" name="name" id="">
-        <br>
-        <label>Тест: </label><input type="checkbox" name="test" id="">
-        <br>
-        <input type="submit" value="Создать">
-    </form>
 
+    <?php
+        if($owner[0][0] == 1){ ?>
+            <form action="create_content.php" method="get">
+                <p>Создание новой главы</p>
+                <label>Название главы: </label><input type="text" name="name" id="">
+                <br>
+                <label>Тест: </label><input type="checkbox" name="test" id="">
+                <br>
+                <input type="submit" value="Создать">
+            </form>
+        <?php } ?>
 
 </body>
 </html>

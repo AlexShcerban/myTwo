@@ -1,12 +1,10 @@
 var amount = 0;
 
 function gen_Goods(products){
-    let nameUrl = "product";
-
+    alert ("asdasd");
     let product = [];
-    let productA = [];
     let _parent = document.getElementById("catalog_block");
-    
+ //   alert (search);
     let _child = document.createElement("div");
     _child.className = "goods";
     _parent.appendChild(_child);
@@ -15,13 +13,7 @@ function gen_Goods(products){
     for(let i = 0; i < products.length; i++){
         product[i] = document.createElement("div");
         product[i].className = "product";
-       // product[i].href = 'product.php?id_product=' + i + ';
-      //  product[i].setAttribute("href", 'product.php?id_product='+i);
-
         _child.appendChild(product[i]);
-
-      //  product[i].innerHTML = products[i][1];
-
         product[i].innerHTML = '<a href = "product.php?id_product=' + i + '">' + products[i][1] + '<br> <img src="' + products[i][4] + '" alt="Фото курса" width = "170" height = "170" style = "margin-top: 10px;"></a>';
     }
 }

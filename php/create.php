@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once '../config/connect.php';
 
 $name = $_POST['_name'];
@@ -7,6 +7,7 @@ $description = $_POST['description'];
 $price = $_POST['price'];
 //Сделать get способ
 
+//$accaunt = mysqli_query ($connect, "SELECT `id` FROM `accaunt` WHERE")
 
 
 if(!empty($_FILES['photo'])){
@@ -23,9 +24,10 @@ if(!empty($_FILES['photo'])){
     }
     echo "3 ";
 }
-
+$id = $_SESSIOn["id"];
 
 mysqli_query($connect, "INSERT INTO `Course` (`id`, `name`, `price`, `description`, `photo`) VALUES (NULL, '$name', '$price', '$description', '$pathFile')");
+//mysqli_query($connect, "INSERT INTO `list_course` (`id`, `id_course`, `id_accaunt`, `owner`, `percent`) VALUES (NULL, '$name', '$id', 1, 100)");//как получить id созданного курса???
 
 header('Location: course.php');
 ?>
