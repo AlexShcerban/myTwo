@@ -9,14 +9,11 @@ $id = $money[0][1];
 
 if($money[0][0] >= $price)
 {
-    $curs_id = (int)$_GET["curs_id"];
-    mysqli_query($connect, "UPDATE `accaunts` SET `curs` = ". $curs_id);
-    mysqli_query($connect, "UPDATE `accaunts` SET `money` = ". ($money[0][0] - $price) . "WHERE `id` = " . $_SESSION["id"]);
+    $curs_id = $_GET["curs_id"];
+   // mysqli_query($connect, "UPDATE `accaunts` SET `curs` = " . $id);
+    mysqli_query($connect, "UPDATE `accaunts` SET `money` = ". ($money[0][0] - $price) . "  WHERE `id` =" . $id);
     mysqli_query($connect, "INSERT INTO `list_course` (`id`, `id_course`, `id_accaunt`, `owner`, `percent`) VALUES (NULL, '$curs_id', '$id', 0, 0)");
 }
-
-echo (int)$_GET["curs_id"];
+echo "UPDATE `accaunts` SET `money` = ". ($money[0][0] - $price) . "WHERE `id` =" . $id;
 header("Location: ../index.php");
-
-
 ?>

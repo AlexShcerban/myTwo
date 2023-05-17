@@ -6,7 +6,7 @@ $_id = $_SESSION["id"];
 if($_id != 0){
     $accaunts = mysqli_query($connect, "SELECT * FROM `accaunts` WHERE `id`=$_id");//получение данных
     $accaunts = mysqli_fetch_all($accaunts);//нормальный вид
-    $list_course = mysqli_query($connect, "SELECT `list_course`.id_course FROM `accaunts` JOIN `list_course` ON `accaunts`.id = `list_course`.id_accaunt WHERE `accaunts`.id =$_id");
+    $list_course = mysqli_query($connect, "SELECT `list_course`.id_course, `list_course`.owner FROM `accaunts` JOIN `list_course` ON `accaunts`.id = `list_course`.id_accaunt WHERE `accaunts`.id =$_id");
     $list_course = mysqli_fetch_all ($list_course);
 
     $list_id = "1";
@@ -38,18 +38,28 @@ if($_id != 0){
         <?php include "html/header.php" ?>
         <main>
             <div class = "table">
-                .
+                .<!-- Основная информация -->
                 <?php if($_SESSION["id"] > 0){ ?>
-                    <div class = "windowBig">
+                    <div class = "windowBig" id = "main_info">
                         Name: <?= $accaunts[0][1] ?><br>
                         Баланс: <?= $accaunts[0][4] ?><br><br>
-                    
-                        <div>
-                            Мои Курсы: <br>
+                        <!-- Мои курсы -->
+                        <div id = "main_my_course">
                             <?php
-                            for($i = 0; $i <= (count($curses) + 1); $i++){
+                            for($i = 0; $i < (count($curses)); $i++){
                                 ?>
-                                <a href="html/openCurs.php?cursId=<?= $curses[$i][0] ?>"> <?= $curses[$i][1] ?> </a><br>
+                                <a href="html/openCurs.php?cursId=<?= $curses[$i][0] ?>">
+                                <div class = "my_course"> <?= $curses[$i][1] ?>
+                                <?php 
+                                    for($r = 0; $r < count($list_course); $r++){
+                                        if($curses[$i][0] == $list_course[$r][0]){
+                                            if($list_course[$r][1] == 1){
+                                                echo "<br> Владелец";
+                                            }
+                                        }
+                                    }
+                                ?>
+                                </div> </a><br>
                                 <?php
                             }
                             ?>
@@ -61,13 +71,26 @@ if($_id != 0){
                             </form>
                         </div>
                     </div>
+                    <!-- Регистрация -->
                 <?php } else { ?>
                     <form action = "auth.php" method="get" name="frm" class = "windowBig">
                         <fieldset>
+                            <label>Вход</label><br>
                             <input type="hidden" name="exit" value = "2">
-                            <p>Email: <input type="email" name="email" id=""></p>
+                            <p>Email: <input type="text" name="email" id=""></p>
                             <p>Пароль: <input type="password" name="password" id=""></p>
                             <input type="button" onclick="checkform()" value="Вход" class = "button">
+                        </fieldset>
+                    </form>
+                    <form action = "auth.php" method="get" name="frm1" class = "windowBig">
+                        <fieldset>
+                            <label>Регистрация</label><br>
+                            <input type="hidden" name="exit" value = "1">
+                            <p>Email: <input type="text" name="email" id=""></p>
+                            <p>Пароль: <input type="password" name="password" id=""></p>
+                            <!--<input type="button" onclick="checkform()" value="Регистрация" class = "button">-->
+                            Я не робот: <input type="checkbox" name="norobot" id=""><br><br>
+                            <input type="submit" value="Регистрация" class = "button">
                         </fieldset>
                     </form>
                 <?php } ?>

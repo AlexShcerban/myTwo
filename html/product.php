@@ -1,12 +1,12 @@
 <?php 
 require_once '../config/connect.php';
-$products = mysqli_query($connect, "SELECT * FROM `Course`");//получение данных
+$a=$_GET["id_product"];
+
+$products = mysqli_query($connect, "SELECT * FROM `Course` WHERE `id` =" . $a);//получение данных
 $products = mysqli_fetch_all($products);//нормальный вид
 session_start();
-
-
-$a=(int)$_GET["id_product"];// получение id открываемого товара 
-$product = $products[$a];
+ 
+$product = $products[0];
 ?>
 
 <!DOCTYPE html>

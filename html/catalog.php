@@ -52,7 +52,7 @@ $search1 = $_GET["search"];
                         if($find){ 
                         ?>
                         <div class = "product">
-                            <a href = "product.php?id_product= <?= $products[$i][0] ?>">
+                            <a href = "product.php?id_product=<?= $products[$i][0] ?>">
                                 <?= $products[$i][1] ?>
                                 <br> 
                                 <img src= "<?= $products[$i][4] ?>" alt="Фото курса" width = "170" height = "170" style = "margin-top: 10px;">
@@ -63,9 +63,9 @@ $search1 = $_GET["search"];
             </div>
 
         </main>
-       <!-- <footer>
+        <footer>
 
-        </footer> -->
+        </footer> 
     </body>
 </html>
 

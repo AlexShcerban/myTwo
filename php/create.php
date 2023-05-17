@@ -24,10 +24,12 @@ if(!empty($_FILES['photo'])){
     }
     echo "3 ";
 }
-$id = $_SESSIOn["id"];
-
+$id = $_SESSION["id"];
+$a = mysqli_query ($connect, "SELECT `id` FROM `Course`");
+$a = mysqli_fetch_all($a);
+$a = end($a);
 mysqli_query($connect, "INSERT INTO `Course` (`id`, `name`, `price`, `description`, `photo`) VALUES (NULL, '$name', '$price', '$description', '$pathFile')");
-//mysqli_query($connect, "INSERT INTO `list_course` (`id`, `id_course`, `id_accaunt`, `owner`, `percent`) VALUES (NULL, '$name', '$id', 1, 100)");//как получить id созданного курса???
+mysqli_query($connect, "INSERT INTO `list_course` (`id`, `id_course`, `id_accaunt`, `owner`, `percent`) VALUES (NULL, '" . ($a[0] + 1) . "', '$id', 1, 100)");//как получить id созданного курса???
 
 header('Location: course.php');
 ?>

@@ -16,6 +16,30 @@
     border-radius: 3px;
 }
 
+/* Личный кабинет */
+.my_course{
+    width: 100px;
+    height: 120px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(94, 200, 216);
+    border-radius: 3px;
+}
+#main_my_course{
+    position: absolute;
+    left: 30%;
+    width: 55%;
+    top: 20px;
+    background-color: rgb(36, 114, 119);
+
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#main_info{
+    height: 200px;
+}
 
 
 /*Разное----------------------------------------*/
@@ -33,6 +57,17 @@ footer{
     margin-left: 15%;
     height: 50px;
     margin-bottom: 20px;
+}
+.header_button{
+    width: 120px;
+    height: 25px;
+    background-color: rgb(54, 114, 118);
+    margin-top: 10px;
+    margin-left: 20px;
+    color: aliceblue;
+    text-align: center;
+    display: inline-block;
+    align-items: center;
 }
 .text_center{
     text-align: center;
@@ -57,7 +92,7 @@ body{
 /* каталог -------------------------------------------*/
 #catalog_block{
     overflow: hidden;
-    position: absolute;
+   /* position: absolute;*/
     border-radius: 15px;
 }
 .goods{

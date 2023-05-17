@@ -45,10 +45,10 @@
         if($owner[0][0] == 1){ ?>
             <form action="create_content.php" method="get">
                 <p>Создание новой главы</p>
+                <input type="hidden" name="id_curs" value = <?= $id ?>>
                 <label>Название главы: </label><input type="text" name="name" id="">
                 <br>
                 <label>Тест: </label><input type="checkbox" name="test" id="">
-                <br>
                 <input type="submit" value="Создать">
             </form>
         <?php } ?>
