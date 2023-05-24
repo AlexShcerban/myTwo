@@ -6,7 +6,7 @@
             <a href="../html/catalog.php"><div class = "header_button">Каталог</div></a>
             <a href="../php/create.php"><div class = "header_button">Создание курса</div></a>
     <?php } else { ?>
-            <a href="../index.php"><div class = "header_button">Регистрация</div></a>
+            <a href="../index.php"><div class = "header_button">Вход</div></a>
             <a href="../html/catalog.php"><div class = "header_button">Каталог</div></a>
     <?php } ?>
 </header>

@@ -40,7 +40,7 @@ $search1 = $_GET["search"];
             <!-- Создание списка курсов -->
             <div id = "catalog_block" class = "table">
                 <div class = "goods">
-                    <?php for($i = 0; $i <= count($products); $i++){
+                    <?php for($i = 0; $i < count($products); $i++){
                         // Проверка введено ли поисковое слово
                         if($search1 == ""){
                             $find = true;
